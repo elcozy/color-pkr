@@ -1,0 +1,141 @@
+$color_1: #fff;
+$color_2: #5372f0;
+$color_3: #143feb;
+$font-family_1: "Poppins", sans-serif;
+$font-family_2: "Open sans";
+$background-color_1: black;
+
+/* Import Google font - Poppins */
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family_1;
+}
+body {
+  background: grey;
+  border-radius: 15px;
+}
+.popup {
+  width: 344px;
+  background: #fff;
+  border: 2px solid grey;
+  border-radius: 15px;
+  margin: 2px;
+  .picker {
+    display: flex;
+    align-items: center;
+    margin: 10px 15px;
+    justify-content: center;
+    border-radius: 0 0 15px 15px;
+    #color-picker {
+      border: none;
+      outline: none;
+      color: $color_1;
+      font-size: 15px;
+      cursor: pointer;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #b30510;
+      transition: 0.3s ease;
+      &:hover {
+        background: #b30511ae;
+      }
+    }
+  }
+
+  .recent-colors {
+    header {
+      display: flex;
+      align-items: center;
+    }
+    margin: 10px 15px;
+    &.hide {
+      display: none;
+    }
+    header {
+      justify-content: space-between;
+      .title {
+        font-size: 1rem;
+      }
+      .clear-all {
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: $color_2;
+        &:hover {
+          color: $color_3;
+        }
+      }
+    }
+    .all-colors {
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 10px 0 15px;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+
+      .color-tooltip {
+        cursor: pointer;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        box-shadow: #00000059 0px 5px 5px;
+        border: none;
+
+        position: relative;
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8),  &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          background: #000;
+          .tooltiptext {
+            left: unset;
+            right: 0;
+          }
+        }
+      
+        .tooltiptext {
+          visibility: hidden;
+          background-color: $background-color_1;
+          color: $color_1;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px 10px;
+          top: calc(100% + 6px);
+          left: 0;
+          font-size: 0.7rem !important;
+          position: absolute;
+          z-index: 1;
+          border-width: 1px;
+          border-style: solid;
+          width: max-content;
+          text-transform: inherit;
+
+          font-size: 0.96rem;
+          font-weight: 500;
+          // text-transform: uppercase;
+          font-family: $font-family_2;
+        }
+        &:hover {
+          box-shadow: 0px 0px 0px #b5b5b5, 0px 0px 0px #fff,
+            inset 1px 1px 1px #b5b5b5, inset -1px -1px 6px #fff !important;
+          .tooltiptext {
+            visibility: visible;
+          }
+        }
+      }
+
+      &.hex {
+        text-transform: uppercase;
+      }
+      &.rbg,
+      &.hsl {
+        text-transform: lowercase;
+      }
+    }
+  }
+}

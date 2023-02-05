@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="script.js" defer></script>
     <title>Color picker ext..</title>
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+
   </head>
   <body>
     <div class="popup">
-      <div class="picker">
-        <button id="color-picker">Pick Color</button>
-      </div>
-      <div class="picked-colors hide">
+      <div class="recent-colors hide">
         <header>
-          <p class="title">Picked colors</p>
-          <span class="clear-all">Clear All</span>
+          <p class="title">Recent:</p>
+          <div class="custom-select" >
+            <select id="color-type">
+              <option value="0" disabled hidden>Select color type:</option>
+              <option value="hex">hex</option>
+              <option value="rgb">rgb</option>
+              <option value="hsl">hsl</option>
+            </select>
+          </div>
+          <span class="clear-all">clear</span>
+
         </header>
         <div class="all-colors"></div>
+        <div>
+            <span>Click to copy color..</span>
+        </div>
+      </div>
+      <div class="picker">
+        <button id="color-picker">
+            
+            <i class="fa-solid fa-eye-dropper"></i>
+     </button>
       </div>
     </div>
   </body>
