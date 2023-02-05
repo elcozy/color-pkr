@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Color Picker",
-    "description": "A simple color picker extension. Easily pick any color on the screen, view a history of picked colors, and copy or clear them with a single click.",
+    "name": "Simple Color Picker",
+    "description": "This simple simple color picker extension. Easily pick any color on the screen in hex, hsl or rgb, view a history of max. 16 of picked colors, and copy or clear them with a single click.",
     "version": "1.0",
     "action": {
         "default_popup": "index.html"

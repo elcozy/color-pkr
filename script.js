@@ -18,15 +18,7 @@ const addPickedColor = (color) => {
   const { hex, rgb, hsl } = toRgbHslHex(color);
   toRgbHslHex(color);
 
-  if (colorType === "rgb") {
-    color = rgb;
-  }
-  if (colorType === "hex") {
-    color = hex;
-  }
-  if (colorType === "hsl") {
-    color = hsl;
-  }
+   color = colorType === "rgb" ? rgb : colorType === "hsl" ? hsl : hex;
 
   const background = `background: ${color}`;
   const boxShadow = `box-shadow: ${
@@ -81,7 +73,7 @@ const showPickedColor = () => {
 };
 
 const setColorType = (el) => {
-  console.log("You selected: ", el.target.value);
+//   console.log("You selected: ", el.target.value);
   const option = el.target.value;
 
   if (option === "esc") return;
@@ -111,7 +103,10 @@ const openEyeDropper = () => {
       // Opening the eye dropper and getting the selected color
       const eyeDropper = new EyeDropper();
       const { sRGBHex } = await eyeDropper.open();
-      navigator.clipboard.writeText(sRGBHex);
+      const { hex, rgb, hsl } = toRgbHslHex(sRGBHex);
+      const copiedText =
+        colorType === "rgb" ? rgb : colorType === "hsl" ? hsl : hex;
+      navigator.clipboard.writeText(copiedText);
       lightOrDark(sRGBHex);
       // Adding the color to the list if it doesn't already exist
       if (!pickedColors.includes(sRGBHex)) {
